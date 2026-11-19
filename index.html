@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>借山 · 无锡寄畅园五百年</title>
+<meta name="description" content="一座只有十五亩的园子，怎么把墙外的山借进来。无锡寄畅园，五个年代，一种手法。" />
+<meta property="og:title" content="借山 · Borrowed Mountain" />
+<meta property="og:description" content="园子只有十五亩。山，是整个江南的。" />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23efe7d6'/%3E%3Cpath d='M4 26 L12 12 L18 21 L22 15 L29 26 Z' fill='%231d2321'/%3E%3C/svg%3E" />
+  <script type="module" crossorigin src="./assets/index-D6l3E4Qc.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/style-CTzepO9p.css">
+</head>
+<body>
+<div id="wrap">
+  <canvas id="stage" tabindex="0" role="application"
+    aria-label="借山：拖动画面里的墙、树、柱、画框或塔，把墙外的山、塔借进园中。方向键微调，方括号切换可拖动对象。"></canvas>
+
+  <div id="hud" hidden>
+    <div class="hud-top">
+      <div class="hud-era"><span id="hud-era"></span><b id="hud-name"></b></div>
+      <div class="hud-right">
+        <span id="hud-idx" class="hud-idx"></span>
+        <button id="btn-sound" class="mini" type="button">音 开</button>
+        <button id="btn-ai" class="mini" type="button">AI 说明</button>
+        <button id="btn-src" class="mini" type="button">出处</button>
+      </div>
+    </div>
+
+    <div class="hud-bottom">
+      <div class="hud-left">
+        <p id="task" class="task"></p>
+        <p id="note" class="note"></p>
+        <p id="handles" class="hud-handles"></p>
+      </div>
+      <div class="hud-card">
+        <ul id="checks" class="checks"></ul>
+        <div class="hud-actions">
+          <button id="seal" class="seal-btn" type="button" hidden>落印</button>
+          <button id="hint" class="mini" type="button" hidden>提示</button>
+          <button id="btn-skip" class="mini ghost" type="button" hidden>跳过本关</button>
+        </div>
+        <p id="hint-text" class="hint-text" hidden></p>
+      </div>
+    </div>
+  </div>
+
+  <div id="cover" class="screen">
+    <div class="cover-inner">
+      <p class="cover-eyebrow">无锡 · 惠山 · 寄畅园</p>
+      <h1 id="cover-title">借山</h1>
+      <p id="cover-latin" class="cover-latin">Borrowed Mountain</p>
+      <p id="cover-sub" class="cover-sub"></p>
+      <p id="cover-lead" class="cover-lead"></p>
+      <button id="btn-start" class="start" type="button">入园</button>
+      <p id="cover-howto" class="cover-howto"></p>
+      <p class="cover-foot">五个年代 · 一次通关约 8 分钟 · 无需登录</p>
+    </div>
+  </div>
+
+  <div id="end" class="screen" hidden>
+    <div class="end-inner">
+      <p class="cover-eyebrow">卷末</p>
+      <h2 id="end-title">卷末</h2>
+      <p id="end-line" class="end-line"></p>
+      <div id="strip" class="strip"></div>
+      <div class="end-actions">
+        <button id="btn-save" class="start" type="button">存下这张图</button>
+        <button id="btn-again" class="mini" type="button">再借一次</button>
+      </div>
+      <h3 class="end-h3">出处</h3>
+      <ul id="srclist" class="srclist"></ul>
+      <p class="end-foot">本作画面全部程序化绘制，未使用实景照片；引用原文均注出处。字体 Noto Serif SC（SIL OFL 1.1）。</p>
+    </div>
+  </div>
+
+  <div id="sheet" class="sheet" hidden>
+    <div class="sheet-inner">
+      <div class="sheet-head">
+        <h3 id="sheet-title"></h3>
+        <button id="sheet-close" class="mini" type="button">关闭</button>
+      </div>
+      <ul id="sheet-body" class="sheet-body"></ul>
+    </div>
+  </div>
+</div>
+</body>
+</html>
