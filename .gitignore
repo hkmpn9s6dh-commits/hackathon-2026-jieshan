@@ -1,0 +1,10 @@
+node_modules/
+dist/
+proof/shots/
+/tmp/
+*.log
+assets/raw/
+assets/far-range.png
+assets/_ridge_check.png
+assets/ridge.npy
+scripts/_conv.py
