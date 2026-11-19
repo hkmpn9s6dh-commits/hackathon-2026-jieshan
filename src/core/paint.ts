@@ -324,7 +324,7 @@ export function drawWall(
   if (opts.texture) {
     g.save();
     g.globalCompositeOperation = "multiply";
-    g.globalAlpha = 0.17;
+    g.globalAlpha = 0.26;
     const pat = g.createPattern(opts.texture, "repeat");
     if (pat) {
       g.fillStyle = pat;
@@ -462,6 +462,43 @@ export function drawRuin(g: CanvasRenderingContext2D, l: number, r: number, top:
   shadow.addColorStop(1, "rgba(60,54,40,0.18)");
   g.fillStyle = shadow;
   g.fillRect(l - 30, top + 40, 40, h - 40);
+  g.restore();
+}
+
+/**
+ * 墙上的竹影。粉墙最怕空，一笔影子就活了。
+ * 画在离屏再模糊，避免看得出是矢量线。
+ */
+export function drawWallShadow(
+  g: CanvasRenderingContext2D,
+  l: number,
+  r: number,
+  top: number,
+  bottom: number,
+  sprite?: HTMLCanvasElement,
+): void {
+  g.save();
+  g.beginPath();
+  g.rect(l, top, r - l, bottom - top);
+  g.clip();
+  if (sprite) {
+    // 树影：只取树冠那一段，斜着落在墙上
+    const sw = sprite.width;
+    const sh = sprite.height * 0.62;
+    g.filter = "blur(11px)";
+    g.globalAlpha = 0.13;
+    g.drawImage(sprite, 0, 0, sw, sh, 700, top - 150, 760, 560);
+    g.globalAlpha = 0.07;
+    g.drawImage(sprite, 0, 0, sw, sh, 150, top - 90, 600, 430);
+    g.filter = "none";
+  }
+  // 墙脚的一点潮气
+  const damp = g.createLinearGradient(0, bottom - 120, 0, bottom);
+  damp.addColorStop(0, "rgba(70,66,50,0)");
+  damp.addColorStop(1, "rgba(70,66,50,0.12)");
+  g.globalAlpha = 1;
+  g.fillStyle = damp;
+  g.fillRect(l, bottom - 120, r - l, 120);
   g.restore();
 }
 

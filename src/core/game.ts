@@ -316,6 +316,7 @@ function drawScene1(): void {
   P.drawPlate(ctx, assets.far, { x: 0, y: 0, w: STAGE.w, h: STAGE.h }, 0.95);
   P.drawTreeSprite(ctx, inkTree, state.s1.treeX, state.s1.wallTop + 150, 480, 0.94);
   P.drawWall(ctx, -20, STAGE.w + 20, state.s1.wallTop, { texture: assets.wall, seed: 3, shade: 0.26 });
+  P.drawWallShadow(ctx, -20, STAGE.w + 20, state.s1.wallTop + 16, STAGE.h, inkTree);
 }
 
 function drawScene2(): void {
