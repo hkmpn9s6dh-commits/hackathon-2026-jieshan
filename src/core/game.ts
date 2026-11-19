@@ -23,7 +23,7 @@ const state: State = {
   screen: "cover",
   level: 1,
   s1: { wallTop: 596, treeX: 470 },
-  s2: { pillarL: 360, pillarR: 892, eaveY: 148, mistY: 420 },
+  s2: { pillarL: 360, pillarR: 892, eaveY: 148, mistY: 430 },
   s3: { fx: 150, fy: 74, fw: 820, fh: 500 },
   s4: { wallX: 300, wallTopY: 336 },
   s5: { memX: 720, memY: 388, towerX: 940 },
@@ -572,7 +572,7 @@ function wire(): void {
     state.solved = [false, false, false, false, false];
     state.snaps = [null, null, null, null, null];
     state.s1 = { wallTop: 596, treeX: 470 };
-    state.s2 = { pillarL: 360, pillarR: 892, eaveY: 148, mistY: 420 };
+    state.s2 = { pillarL: 360, pillarR: 892, eaveY: 148, mistY: 430 };
     state.s3 = { fx: 150, fy: 74, fw: 820, fh: 500 };
     state.s4 = { wallX: 300, wallTopY: 336 };
     state.s5 = { memX: 720, memY: 388, towerX: 940 };

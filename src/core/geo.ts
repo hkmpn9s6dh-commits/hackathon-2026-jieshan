@@ -189,12 +189,14 @@ export interface S2 {
 
 export const L2_MIST_H = 96;
 export const L2_BOUNDS = {
-  pillarL: { min: 300, max: 760 },
-  pillarR: { min: 860, max: 1360 },
+  pillarL: { min: 300, max: 820 },
+  pillarR: { min: 860, max: 1500 },
   eaveY: { min: 80, max: 170 },
   mistY: { min: 330, max: 470 },
 };
 export const PILLAR_W = 26;
+/** 两侧留白之差的上限：塔不能贴着柱，也不能一边空一半 */
+export const L2_BALANCE = 140;
 
 export function measure2(s: S2): Check[] {
   const innerL = s.pillarL + PILLAR_W;
@@ -207,6 +209,9 @@ export function measure2(s: S2): Check[] {
   const mistTop = s.mistY - L2_MIST_H / 2;
   const mistBottom = s.mistY + L2_MIST_H / 2;
   const baseHidden = mistTop <= base - 24 && mistBottom >= base + 12;
+  const gapL = PAGODA.x - innerL;
+  const gapR = innerR - (PAGODA.x + PAGODA.w);
+  const balance = Math.abs(gapL - gapR);
   return [
     {
       id: "l2-gap",
@@ -219,6 +224,12 @@ export function measure2(s: S2): Check[] {
       ok: eaveOk,
       label: "塔尖不许碰檐口",
       value: `pagodaTop=${PAGODA.y} eaveBottom=${eaveBottom.toFixed(0)} need>=12px`,
+    },
+    {
+      id: "l2-balance",
+      ok: balance <= L2_BALANCE,
+      label: "两侧留白要匀",
+      value: `left=${gapL.toFixed(0)} right=${gapR.toFixed(0)} |diff|=${balance.toFixed(0)} (<=${L2_BALANCE})`,
     },
     {
       id: "l2-base",

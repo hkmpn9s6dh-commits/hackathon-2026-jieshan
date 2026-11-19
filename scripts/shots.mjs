@@ -9,7 +9,7 @@ fs.mkdirSync(OUT, { recursive: true });
 
 const SOL = {
   1: { wallTop: 470, treeX: 962 },
-  2: { pillarL: 470, pillarR: 1210, eaveY: 104, mistY: 400 },
+  2: { pillarL: 700, pillarR: 1428, eaveY: 104, mistY: 400 },
   3: { fx: 380, fy: 128, fw: 1020, fh: 680 },
   4: { wallX: 380, wallTopY: 392 },
   5: { memX: 990, memY: 150, towerX: 1252 },

@@ -27,7 +27,7 @@ section("一、几何判据");
 /** 每关一个已知能过的解 */
 const SOLVED = {
   1: { wallTop: 470, treeX: 962 },
-  2: { pillarL: 470, pillarR: 1210, eaveY: 104, mistY: 400 },
+  2: { pillarL: 700, pillarR: 1428, eaveY: 104, mistY: 400 },
   3: { fx: 380, fy: 128, fw: 1020, fh: 680 },
   4: { wallX: 380, wallTopY: 392 },
   5: { memX: G.PAGODA.x, memY: G.PAGODA.y, towerX: 1252 },
@@ -46,6 +46,7 @@ const MUTATIONS = [
   ["1", "l1-dip", { ...SOLVED[1], treeX: 600 }],
   ["1", "l1-wall", { ...SOLVED[1], wallTop: 620 }],
   ["2", "l2-gap", { ...SOLVED[2], pillarR: 1100 }],
+  ["2", "l2-balance", { ...SOLVED[2], pillarL: 470, pillarR: 1210 }],
   ["2", "l2-eave", { ...SOLVED[2], eaveY: 160 }],
   ["2", "l2-base", { ...SOLVED[2], mistY: 330 }],
   ["3", "l3-aspect", { ...SOLVED[3], fh: 600 }],
